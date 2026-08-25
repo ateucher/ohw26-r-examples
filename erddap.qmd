@@ -23,7 +23,7 @@ library(patchwork)
 Set up the query parameters: how far back in time to pull data, which
 variables to request, and which dataset/server to query.
 
-We are pulling the data from this record: <https://dap.oceannetworks.ca/erddap/tabledap/scalar_1217325.html>
+We are pulling the data from this record at China Creek: <https://dap.oceannetworks.ca/erddap/tabledap/scalar_1217325.html>
 
 ```{r}
 base_url <- 'https://dap.oceannetworks.ca/erddap'
@@ -54,7 +54,7 @@ fields we're interested in. Note the time constraint is passed as a single
 unnamed string (`"time>=..."`), as required by `tabledap()`.
 
 ```{r}
-data <- tabledap(
+cc_02_data <- tabledap(
   info(dataset_id, url = base_url),
   paste0("time>=", format(start_time, "%Y-%m-%dT%H:%M:%SZ")),
   fields = query_vars
@@ -65,21 +65,21 @@ Plot temperature and corrected oxygen over time, stacked together for
 comparison.
 
 ```{r}
-temp_plot <- data |>
+temp_plot <- cc_02_data |>
   ggplot(aes(x = time, y = temperature)) +
   geom_line(colour = "red") +
   labs(
-    title = paste0("Temperature at depth ", unique(data$depth), "m"),
+    title = paste0("Temperature at depth ", unique(cc_02_data$depth), "m"),
     x = "Time",
     y = "Temperature (°C)"
   ) +
   theme_minimal()
 
-oxy_plot <- data |>
+oxy_plot <- cc_02_data |>
   ggplot(aes(x = time, y = oxygen_corrected)) +
   geom_line(colour = "blue") +
   labs(
-    title = paste0("Corrected Oxygen at depth ", unique(data$depth), "m"),
+    title = paste0("Corrected Oxygen at depth ", unique(cc_02_data$depth), "m"),
     x = "Time",
     y = "Oxygen (µmol/kg)"
   ) +
