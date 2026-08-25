@@ -5,7 +5,10 @@ title: "ONC ERDDAP with R"
 Demonstration of how to use the `rerddap` package to access data from the 
 Ocean Networks Canada ERDDAP server. A minimal translation from <https://github.com/oceanhackweek/ohw-tutorials/blob/OHW26/01-Tue/DataAccess/PartI_ERDDAP_Tutorial.ipynb>
 
-Load the packages needed to query the ERDDAP server, wrangle the results, and combine plots.
+This uses the [rerddap](https://docs.ropensci.org/rerddap/index.html) package to 
+make the querying of ERDDAP servers easier. 
+
+First, load the packages needed to query the ERDDAP server, wrangle the results, and combine plots.
 
 ```{r}
 #| include: false
