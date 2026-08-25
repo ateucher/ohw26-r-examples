@@ -1,0 +1,68 @@
+---
+title: "ONC ERDAPP with R"
+---
+
+Demonstration of how to use the `rerddap` package to access data from the 
+Ocean Networks Canada ERDDAP server. A minimal translation from <https://github.com/oceanhackweek/ohw-tutorials/blob/OHW26/01-Tue/DataAccess/PartI_ERDDAP_Tutorial.ipynb>
+
+```{r}
+library(rerddap)
+library(tidyverse)
+library(patchwork)
+```
+
+```{r}
+time_series_length <- 14 # in days. note ERDDAP server is slow, which is why we are limiting to 14 days for now.
+start_time <- Sys.time() - time_series_length * 24 * 3600
+query_vars <- c(
+  'time',
+  'temperature',
+  'oxygen_corrected',
+  'oxygen_uncorrected',
+  'latitude',
+  'longitude',
+  'depth'
+)
+
+base_url <- 'https://dap.oceannetworks.ca/erddap'
+
+dataset_id <- 'scalar_1217325'
+```
+
+```{r}
+info(dataset_id, url = base_url)
+```
+
+```{r}
+data <- tabledap(
+  info(dataset_id, url = base_url),
+  paste0("time>=", format(start_time, "%Y-%m-%dT%H:%M:%SZ")),
+  fields = query_vars,
+  url = base_url
+)
+```
+
+
+```{r}
+temp_plot <- data |>
+  ggplot(aes(x = time, y = temperature)) +
+  geom_line(colour = "red") +
+  labs(
+    title = paste0("Temperature at depth ", unique(data$depth), "m"),
+    x = "Time",
+    y = "Temperature (°C)"
+  ) +
+  theme_minimal()
+
+oxy_plot <- data |>
+  ggplot(aes(x = time, y = oxygen_corrected)) +
+  geom_line(colour = "blue") +
+  labs(
+    title = paste0("Corrected Oxygen at depth ", unique(data$depth), "m"),
+    x = "Time",
+    y = "Oxygen (µmol/kg)"
+  ) +
+  theme_minimal()
+
+temp_plot / oxy_plot
+```
