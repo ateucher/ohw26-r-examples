@@ -7,6 +7,13 @@
     "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\nA few translations of python notebooks to R are included here. The original notebooks can be found at https://github.com/oceanhackweek/ohw-tutorials."
   },
   {
+    "objectID": "index.html#examples",
+    "href": "index.html#examples",
+    "title": "OHW26 R examples",
+    "section": "Examples",
+    "text": "Examples\nONC ERDAPP with R"
+  },
+  {
     "objectID": "erdapp.html",
     "href": "erdapp.html",
     "title": "ONC ERDAPP with R",
