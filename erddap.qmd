@@ -57,8 +57,7 @@ unnamed string (`"time>=..."`), as required by `tabledap()`.
 data <- tabledap(
   info(dataset_id, url = base_url),
   paste0("time>=", format(start_time, "%Y-%m-%dT%H:%M:%SZ")),
-  fields = query_vars,
-  url = base_url
+  fields = query_vars
 )
 ```
 
