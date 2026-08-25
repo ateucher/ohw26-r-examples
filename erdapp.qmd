@@ -8,6 +8,13 @@ Ocean Networks Canada ERDDAP server. A minimal translation from <https://github.
 Load the packages needed to query the ERDDAP server, wrangle the results, and combine plots.
 
 ```{r}
+#| include: false
+options(tidyverse.quiet = TRUE)
+```
+
+```{r}
+#| label: load-packages
+#| message: false
 library(rerddap)
 library(tidyverse)
 library(patchwork)
