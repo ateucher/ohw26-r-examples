@@ -1,5 +1,5 @@
 ---
-title: "ONC ERDAPP with R"
+title: "ONC ERDDAP with R"
 ---
 
 Demonstration of how to use the `rerddap` package to access data from the 

@@ -11,4 +11,4 @@ The original notebooks can be found at <https://github.com/oceanhackweek/ohw-tut
 
 ## Examples
 
-[ONC ERDAPP with R](erdapp.qmd)
+[ONC ERDDAP with R](erddap.qmd)
