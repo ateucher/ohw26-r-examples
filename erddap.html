@@ -175,7 +175,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Demonstration of how to use the <code>rerddap</code> package to access data from the Ocean Networks Canada ERDDAP server. A minimal translation from <a href="https://github.com/oceanhackweek/ohw-tutorials/blob/OHW26/01-Tue/DataAccess/PartI_ERDDAP_Tutorial.ipynb" class="uri">https://github.com/oceanhackweek/ohw-tutorials/blob/OHW26/01-Tue/DataAccess/PartI_ERDDAP_Tutorial.ipynb</a></p>
-<p>Load the packages needed to query the ERDDAP server, wrangle the results, and combine plots.</p>
+<p>This uses the <a href="https://docs.ropensci.org/rerddap/index.html">rerddap</a> package to make the querying of ERDDAP servers easier.</p>
+<p>First, load the packages needed to query the ERDDAP server, wrangle the results, and combine plots.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rerddap)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
